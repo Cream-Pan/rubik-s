@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ルービックキューブ紹介</title>
+    <link href="main1.css" rel="stylesheet" type="text/css" media="(min-width: 960px)" >
+        <link href="main2.css" rel="stylesheet" type="text/css" media="(min-width: 600px) and (max-width: 959px)" >
+        <link href="main3.css" rel="stylesheet" type="text/css" media="(max-width: 599px)" >
+</head>
+<header>
+    <h1>【頭がよくなる⁉】ルービックキューブの魅力</h1>
+</header>
+<body>
+    <h2>メニュー</h2>
+    <ul class="dropmenu">
+        <li><a href="./index.html">トップ</a>
+            <ul>
+                <li><a href="./index.html#his">歴史</a></li>
+                <li><a href="./index.html#effe">効果</a></li>
+            </ul>
+        </li>
+        <li><a href="./solve.html">揃え方</a>
+            <ul>
+                <li><a href="./solve.html#web">Webサイトで覚えたい</a></li>
+                <li><a href="./solve.html#vide">動画で覚えたい</a></li>
+                <li><a href="./solve.html#kai">回転記号を覚えたい</a></li>
+                <li><a href="./solve.html#pll">PLLを覚えたい</a></li>
+                <li><a href="./solve.html#oll">OLLを覚えたい</a></li>
+            </ul>
+        </li>
+        <li><a href="./vari.html">色々な形</a>
+            <ul>
+                <li><a href="./vari.html#2x2">2x2</a></li>
+                <li><a href="./vari.html#4x4">4x4</a></li>
+                <li><a href="./vari.html#pira">ピラミンクス</a></li>
+                <li><a href="./vari.html#magic">マジックキューブ</a></li>
+                <li><a href="./vari.html#key">キューブキーホルダー</a></li>
+                <li><a href="./vari.html#maja">麻雀キューブ</a></li>
+            </ul>
+        </li>
+        <li><a href="./patarn.html">パターンキューブ</a>
+            <ul>
+                <li><a href="./patarn.html#check">チェッカー</a></li>
+                <li><a href="./patarn.html#scheck">スーパーチェッカー</a></li>
+                <li><a href="./patarn.html#donut">ドーナツ</a></li>
+                <li><a href="./patarn.html#in">キューブキューブ</a></li>
+                <li><a href="./patarn.html#mini">ミニキューブキューブ</a></li>
+            </ul>
+        </li>
+        <li><a href="./timer.html">タイマー</a></li>
+    </ul>
+    <br/>
+    <h2>STOPWATCH</h2>
+
+    <p><strong>ベストタイム</strong>を目指して練習を積みましょう！</p><br>
+
+    <div class="stopwatch">
+        <div class="scramble" id="scrambleDisplay"></div>
+        <div class="time" id="display">00:00.0</div>
+        <div>Press Space to Start/Stop</div>
+        <button id="resetButton">Reset</button>
+        <div>Best Time: <span id="bestTime">-</span></div>
+    </div>
+
+    <script>
+        let startTime;
+        let updatedTime;
+        let difference = 0;
+        let timerID;
+        let isRunning = false;
+        let bestTime = Infinity;
+
+        const display = document.getElementById('display');
+        const resetButton = document.getElementById('resetButton');
+        const scrambleDisplay = document.getElementById('scrambleDisplay');
+        const bestTimeDisplay = document.getElementById('bestTime');
+
+        function startStopwatch() {
+            startTime = new Date().getTime() - difference;
+            timerID = setInterval(updateTime, 100);
+            display.classList.remove('green');
+        }
+
+        function stopStopwatch() {
+            clearInterval(timerID);
+            updateBestTime();
+            display.classList.add('green');
+        }
+
+        function updateTime() {
+            updatedTime = new Date().getTime();
+            difference = updatedTime - startTime;
+
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+            const milliseconds = Math.floor((difference % 1000) / 100);
+
+            display.innerText = 
+                `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}.${milliseconds}`;
+        }
+
+        function resetStopwatch() {
+            difference = 0;
+            isRunning = false;
+            display.innerText = '00:00.0';
+            display.classList.remove('green');
+        }
+
+        function generateScramble() {
+            const moves = ["U", "D", "L", "R", "F", "B"];
+            const modifiers = ["", "'", "2"];
+            const scrambleLength = 20;
+            let scramble = "";
+            let lastMove = "";
+
+            for (let i = 0; i < scrambleLength; i++) {
+                let move;
+                do {
+                    move = moves[Math.floor(Math.random() * moves.length)];
+                } while (move === lastMove);
+                const modifier = modifiers[Math.floor(Math.random() * modifiers.length)];
+                scramble += `${move}${modifier} `;
+                lastMove = move;
+            }
+
+            scrambleDisplay.innerText = scramble.trim();
+        }
+
+        function updateBestTime() {
+            if (difference < bestTime) {
+                bestTime = difference;
+                const minutes = Math.floor((bestTime % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((bestTime % (1000 * 60)) / 1000);
+                const milliseconds = Math.floor((bestTime % 1000) / 100);
+
+                bestTimeDisplay.innerText = 
+                    `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}.${milliseconds}`;
+            }
+        }
+
+        document.addEventListener('keydown', (event) => {
+            if (event.code === 'Space') {
+                if (isRunning) {
+                    stopStopwatch();
+                } else {
+                    startStopwatch();
+                }
+                isRunning = !isRunning;
+            }
+        });
+
+        resetButton.addEventListener('click', () => {
+            resetStopwatch();
+            generateScramble();
+        });
+        generateScramble();
+    </script>
+
+    <br>
+    <div class="pt">
+    <p><strong>ルービックキューブ　世界最速記録まとめ</strong></p>
+    <ul>
+        <li>3.13秒</li>
+        <p>2023年の大会でMax Park選手が出したギネス公式記録</p>
+        <li>2.45秒</li>
+        <p>2022年にKim選手が更新した非公式記録</p>
+        <li>0.305秒</li>
+        <p>三菱電機が開発したロボットが出した平均記録</p>
+    </ul>
+    </div>
+    <br>
+    <hr />
+    <footer>
+        <p><em>© 15822008 石井貴翔</em></p>
+    </footer>
+</body>
+</html>

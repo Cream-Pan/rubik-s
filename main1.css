@@ -1,0 +1,274 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: rgb(241, 241, 226);
+    color: black;
+}
+
+a {
+    opacity: 1;
+}
+
+a:hover {
+    opacity: 0.5;
+}
+
+.big {
+    width: 250px;
+    height: 250px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 1;
+}
+
+#keyp {
+    width: 300px;
+    height: 250px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#kaitenp {
+    width: 760px;
+    height: 950px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.oll {
+    width: 750px;
+    height: 950px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ptn {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.va {
+    width: 250px;
+    height: 250px;
+    border: solid rgba(82, 179, 79, 0.7);
+    border-width: 1px;
+}
+
+.vb {
+    width: 300px;
+    height: 250px;
+    border: solid rgba(82, 179, 79, 0.7);
+    border-width: 1px;
+}
+
+h1 {
+    font-size: 30px;
+    text-align: center;
+}
+
+.intro {
+    text-align: center;
+}
+
+h2 {
+    font-size: 20px;
+    background-color: #46a15f;
+    padding: 5px;
+    color: #ddffdd;
+    text-align: center;
+}
+
+.solve {
+    font-size: 15px;
+    color: black;
+    background-color: #d8ebba;
+    background-size: contain;
+}
+
+p {
+    font-size: 16px;
+}
+
+hr {
+    border: none;
+    background-color: #f0fff6;
+    border-top: 2px dashed #117f33;
+}
+
+.pt {
+    background-color: #daebea;
+    padding: 30px 30px;
+    width: 90%;
+    margin: 10px auto;
+    border-radius: 30px;
+    box-shadow: 1px 1px 10px -5px rgba(0.3, 0.7, 0.4, 0.8);
+}
+
+.result {
+    width: 250px;
+    height: auto;
+}
+
+.brain {
+    width: 600px;
+    height: auto;
+}
+
+.dropmenu {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    width: 950px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.dropmenu li {
+    background: #d8ebba;
+    text-align: center;
+    box-shadow: 1px 1px 1px rgba(82, 179, 79, 0.7) inset, -1px -1px 1px rgba(115, 139, 179, 0.7) inset;
+    width: 25%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.dropmenu li ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    perspective: 500px;
+    z-index: 2;
+}
+
+.dropmenu li ul li {
+    width: 100px;
+}
+
+.dropmenu li a {
+    margin: 0;
+    padding: 7px 0;
+    display: block;
+    color: #060500;
+    font: bold 11px "游ゴシック", Helvetica;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+}
+
+.dropmenu li a:hover {
+    background: #39796d;
+}
+
+.dropmenu li:hover > a {
+    background: #39796d;
+}
+
+.dropmenu li:hover ul {
+    visibility: visible;
+    opacity: 1;
+}
+
+.dropmenu li:hover li {
+    transform: rotateY(0);
+}
+
+.dropmenu ul li:nth-child(2) {
+    transition-delay: .1s;
+}
+
+.dropmenu ul li:nth-child(3) {
+    transition-delay: .2s;
+}
+
+.dropmenu li:hover ul {
+    visibility: visible;
+    opacity: 1;
+}
+
+.dropmenu ul li {
+    transform: rotateY(90deg);
+    transform-origin: 50% 0;
+    transition: .5s;
+}
+
+.under {
+    background: linear-gradient(transparent 75%, #a8eaff 50%);
+    background-size: 10px;
+    color: #262929;
+}
+
+.stopwatch {
+    text-align: center;
+}
+
+.time {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1em;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.scramble {
+    margin-top: 20px;
+    font-size: 1.2em;
+}
+
+.green {
+    color: green;
+}
+
+#bestTime {
+    color: blue;
+}
+
+.btn {
+    display: inline-block;
+    width: 200px;
+    height: 80px;
+    position: relative;
+    font: bold 20px Helvetica;
+    margin-left: 65%;
+}
+
+.btn-canvas {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.btn-green {
+    border-color: rgba(120, 190, 150, 1.0);
+    background-color: rgba(120, 190, 150, 0.1);
+}
+
+.yami {
+    width: 600px;
+    height: 330px;
+}
+
+details {
+    border-radius: 8px;
+    border: solid 3px rgb(205, 218, 218);
+}
+
+details:hover {
+    background: rgb(205, 218, 218);
+}

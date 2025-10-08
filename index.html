@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>ルービックキューブ紹介</title>
+        <link href="main1.css" rel="stylesheet" type="text/css" media="(min-width: 960px)" >
+        <link href="main2.css" rel="stylesheet" type="text/css" media="(min-width: 600px) and (max-width: 959px)" >
+        <link href="main3.css" rel="stylesheet" type="text/css" media="(max-width: 599px)" >
+        
+        <link rel="stylesheet" href="./dist/css/swiper.css">
+    </head>
+    <header>
+        <h1>【頭がよくなる⁉】ルービックキューブの魅力</h1>
+    </header>
+ <body>
+    <h2>メニュー</h2>
+    <ul class="dropmenu">
+        <li><a href="./index.html">トップ</a>
+            <ul>
+                <li><a href="./index.html#his">歴史</a></li>
+                <li><a href="./index.html#effe">効果</a></li>
+            </ul>
+        </li>
+        <li><a href="./solve.html">揃え方</a>
+            <ul>
+                <li><a href="./solve.html#web">Webサイトで覚えたい</a></li>
+                <li><a href="./solve.html#vide">動画で覚えたい</a></li>
+                <li><a href="./solve.html#kai">回転記号を覚えたい</a></li>
+                <li><a href="./solve.html#pll">PLLを覚えたい</a></li>
+                <li><a href="./solve.html#oll">OLLを覚えたい</a></li>
+            </ul>
+        </li>
+        <li><a href="./vari.html">色々な形</a>
+            <ul>
+                <li><a href="./vari.html#2x2">2x2</a></li>
+                <li><a href="./vari.html#4x4">4x4</a></li>
+                <li><a href="./vari.html#pira">ピラミンクス</a></li>
+                <li><a href="./vari.html#magic">マジックキューブ</a></li>
+                <li><a href="./vari.html#key">キューブキーホルダー</a></li>
+                <li><a href="./vari.html#maja">麻雀キューブ</a></li>
+            </ul>
+        </li>
+        <li><a href="./patarn.html">パターンキューブ</a>
+            <ul>
+                <li><a href="./patarn.html#check">チェッカー</a></li>
+                <li><a href="./patarn.html#scheck">スーパーチェッカー</a></li>
+                <li><a href="./patarn.html#donut">ドーナツ</a></li>
+                <li><a href="./patarn.html#in">キューブキューブ</a></li>
+                <li><a href="./patarn.html#mini">ミニキューブキューブ</a></li>
+            </ul>
+        </li>
+        <li><a href="./timer.html">タイマー</a></li>
+    </ul>
+    <br/>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+          <img class="big" src="./images/cube.png" />
+          </div>
+          <div class="swiper-slide">
+          <img class="big" src="./images/2x2.png" />
+          </div>
+          <div class="swiper-slide">
+          <img class="big" src="./images/4x4.png" />
+          </div>
+          <div class="swiper-slide">
+          <img class="big" src="./images/pira.png" />
+          </div>
+          <div class="swiper-slide">
+          <img id="keyp" src="./images/key.png"/>
+          </div>
+          <div class="swiper-slide">
+          <img class="big" src="./images/majan.png" />
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+
+    <script src="./dist/js/swiper.js"></script>
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            type: 'bullets',
+            clickable: true,
+        },
+        loop: true,
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: true
+        },
+        effect: "coverflow",
+        speed: 1500,
+        });
+    </script>
+
+    <p class="intro"><strong>ルービックキューブ</strong>は、その多様な色や立体的な構造、そして解くための緻密な戦略が魅力の一端です。
+	<br>手に取り、回転させる度に、脳が挑戦に刺激され、<strong><font color="red">論理思考や問題解決能力が向上</font></strong>します。
+    <br>このページでは、ルービックキューブの素晴らしさについて探求し、その解き方から驚くべき成果に至るまでをご紹介します。</p>
+    <hr />
+
+	<h2 id="his">ルービックキューブの歴史</h2>
+	<p>ルービックキューブは、ハンガリーの建築学者で、ブダペスト工科大学教授だった<a href="https://ja.wikipedia.org/wiki/%E3%83%AB%E3%83%93%E3%82%AF%E3%83%BB%E3%82%A8%E3%83%AB%E3%83%8D%E3%83%BC">エルノー・ルービック</a>が1974年に考案した。
+	<br>ルービック社公式サイトの説明によれば、彼は3次元幾何学を説明するための「動くモデル」を求め、ドナウ川の流動を見て発明のヒントを得たという。</p>
+	<p>最初のキューブの原型は、木製の立方体であった。ルービックは完成した3×3×3のキューブの各面を違う色に塗り分けたが、キューブを動かすうちに元に戻せなくなり、「結果的に、出発点に戻るのに丸1か月かかった」と明かしている。</p>
+	<p>ルービックは<abbr title="魔法の立方体">「マジック・キューブ」</abbr>という名前で特許を取得し、1977年にハンガリーの玩具製造会社「ポリテクニカ」から最初のキューブが発売される。
+	<br>その後、アメリカのメーカーであるアイデアル・トイ社が販売権を獲得し、マジック・キューブは発明者の名前を冠した「ルービックキューブ」の名前で1980年5月に世界的に発売された。</p>
+	<p>1980年から1983年にかけて世界中で約2億のルービックキューブが販売されたと推定されており、その後もルービックキューブは売れ続け全世界累計で<font color="red">約3億5000万個</font>が販売されている。</p>
+	<hr />
+
+    <h2 id="effe">効果</h2>
+    <p>ルービックキューブを解くことで、様々な効果があります。</p><br>
+
+    <h3>手先が器用になる</h3>
+    <p>1つ目は、指先をたくさん使うようになることです。
+        ルービックキューブを解くためには、指先をたくさん動かす必要があります。
+        そうすることで、指先と脳との連携が促進され、思考力、言語力、運動能力が向上します。
+        これは特に子供たちも発達において重要であり、遊びながら成長を促進する手段となります。</p><br>
+    
+    <h3>論理的思考力の向上</h3>
+    <p>2つ目は、論理的思考力が向上することです。
+        ルービックキューブを解くためには、論理的なアプローチや戦略が必要であり、このプロセスが論理的思考能力を鍛え、問題解決能力を向上させる。
+        2020年に行われた脳活動についての研究では、ルービックキューブを解くときに論理的思考にかかわる左脳の活性化を促すことが分かった。</p><br>
+    
+    <img class ="brain" src="./images/result1.png" />
+    
+    <p>ルービックキューブの解き方を覚える学習時間の前後に「創造性テスト」を実施。
+    <br>このテストでは、創造的思考力を、従来の知能検査とは違う角度から捉えることができます。
+    創造的思考力とは知識や学力とは別の独立した能力で、自主性、積極性、指導制、向上心などに関わると言われています。
+    <br>前後のテスト結果では、「応用力」・「思考の速さ」・「思考の深さ」においてそれぞれ有意な向上が見られる結果となりました。</p>
+    <img class="result" src="./images/result2.png" />
+    <img class="result" src="./images/result3.png" />
+    <img class="result" src="./images\result4.png" />
+    <br>
+    
+    <h3>集中力が上がる</h3>
+    <p>3つ目は、集中力が上がることです。ルービックキューブを解くためには、集中力が不可欠です。
+        集中力の向上は、子供たちが様々なことに興味を持ち、学習活動や日常生活においても役立ちます。
+        集中力が高まることで、将来においても活躍できる力を育むことが期待されます。
+        また私は、塾講師をしており、教えているときに生徒の集中力不足を感じることがあります。
+        なので、集中力を上げて、授業を受けることで、学力にもいい影響を与えると思います。
+    </p>
+
+    <br>
+    <hr />
+    <footer>
+        <p><em>© 15822008 石井貴翔</em></p>
+    </footer>
+</body>
+</html>

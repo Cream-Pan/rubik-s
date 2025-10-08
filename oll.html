@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>ルービックキューブ紹介</title>
+        <link href="main1.css" rel="stylesheet" type="text/css" media="(min-width: 960px)" >
+        <link href="main2.css" rel="stylesheet" type="text/css" media="(min-width: 600px) and (max-width: 959px)" >
+        <link href="main3.css" rel="stylesheet" type="text/css" media="(max-width: 599px)" >
+
+        <style>
+            @media print {
+                body * {
+                    visibility: hidden;
+                }
+                #printArea * {
+                    visibility: visible;
+                }
+                #printArea {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
+            }
+        </style>
+
+    </head>
+    <header>
+        <h1>【頭がよくなる⁉】ルービックキューブの魅力</h1>
+    </header>
+ <body>
+    <h2>メニュー</h2>
+    <ul class="dropmenu">
+        <li><a href="./index.html">トップ</a>
+            <ul>
+                <li><a href="./index.html#his">歴史</a></li>
+                <li><a href="./index.html#effe">効果</a></li>
+            </ul>
+        </li>
+        <li><a href="./solve.html">揃え方</a>
+            <ul>
+                <li><a href="./solve.html#web">Webサイトで覚えたい</a></li>
+                <li><a href="./solve.html#vide">動画で覚えたい</a></li>
+                <li><a href="./solve.html#kai">回転記号を覚えたい</a></li>
+                <li><a href="./solve.html#pll">PLLを覚えたい</a></li>
+                <li><a href="./solve.html#oll">OLLを覚えたい</a></li>
+            </ul>
+        </li>
+        <li><a href="./vari.html">色々な形</a>
+            <ul>
+                <li><a href="./vari.html#2x2">2x2</a></li>
+                <li><a href="./vari.html#4x4">4x4</a></li>
+                <li><a href="./vari.html#pira">ピラミンクス</a></li>
+                <li><a href="./vari.html#magic">マジックキューブ</a></li>
+                <li><a href="./vari.html#key">キューブキーホルダー</a></li>
+                <li><a href="./vari.html#maja">麻雀キューブ</a></li>
+            </ul>
+        </li>
+        <li><a href="./patarn.html">パターンキューブ</a>
+            <ul>
+                <li><a href="./patarn.html#check">チェッカー</a></li>
+                <li><a href="./patarn.html#scheck">スーパーチェッカー</a></li>
+                <li><a href="./patarn.html#donut">ドーナツ</a></li>
+                <li><a href="./patarn.html#in">キューブキューブ</a></li>
+                <li><a href="./patarn.html#mini">ミニキューブキューブ</a></li>
+            </ul>
+        </li>
+        <li><a href="./timer.html">タイマー</a></li>
+    </ul>
+    <br>
+    <h2>OLL一覧</h2>
+
+    <div id="dat"></div>
+    <input type="text" id="dat2" placeholder="今日でどこまで進んだ？">
+    <input type="button" value="成果を登録" onclick="saveCookie()">
+    <p>※継続は力なり<br><strong>３０日</strong>でリセットされるので注意！</p>
+    
+    <br>
+
+    <div id="printArea">
+        <img class="oll" src="./images/oll1.png" >
+        <img class="oll" src="./images/oll2.png" >
+        <img class="oll" src="./images/oll3.png" >
+    </div>
+    <p><a href="#" onclick="printPage()">印刷する</a></p>
+    
+    <hr />
+    <footer>
+        <p><em>© 15822008 石井貴翔</em></p>
+    </footer>
+
+    <script type="text/javascript"> 
+        window.onload = function() { 
+            var str = ""; 
+            str += "達成度：" + getCookie() + "<br>";
+    
+            document.getElementById("dat").innerHTML = str; 
+        }
+    
+        function getCookie() { 
+            var cookieStr = document.cookie + ";";
+            var startNum = cookieStr.indexOf("cookie_data");
+            var txt = "";
+            if (startNum != -1){
+                var endNum = cookieStr.indexOf(";",startNum);
+                txt = unescape(cookieStr.substring(startNum + "cookie_data".length + 1, endNum));
+            }
+            return txt;
+        }
+    
+        function saveCookie() {
+            var txt = document.getElementById("dat2").value;
+            var day = new Date(); 
+            day.setTime(day.getTime() + 30*24*60*60*5*1000);
+            
+            document.cookie = "cookie_data=" + escape(txt) + ";expires=" + day.toGMTString();
+            
+            location.reload();
+        }
+
+        function printPage() {
+            window.print();
+        }
+    </script>
+
+</body>
+</html>

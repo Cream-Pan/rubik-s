@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>ルービックキューブ紹介</title>
+        <link href="main1.css" rel="stylesheet" type="text/css" media="(min-width: 960px)" >
+        <link href="main2.css" rel="stylesheet" type="text/css" media="(min-width: 600px) and (max-width: 959px)" >
+        <link href="main3.css" rel="stylesheet" type="text/css" media="(max-width: 599px)" >
+
+        <style>
+            @media print {
+                body * {
+                    visibility: hidden;
+                }
+                #printArea * {
+                    visibility: visible;
+                }
+                #printArea {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
+            }
+        </style>
+    </head>
+    <header>
+        <h1>【頭がよくなる⁉】ルービックキューブの魅力</h1>
+    </header>
+ <body>
+    <h2>メニュー</h2>
+    <ul class="dropmenu">
+        <li><a href="./index.html">トップ</a>
+            <ul>
+                <li><a href="./index.html#his">歴史</a></li>
+                <li><a href="./index.html#effe">効果</a></li>
+            </ul>
+        </li>
+        <li><a href="./solve.html">揃え方</a>
+            <ul>
+                <li><a href="./solve.html#web">Webサイトで覚えたい</a></li>
+                <li><a href="./solve.html#vide">動画で覚えたい</a></li>
+                <li><a href="./solve.html#kai">回転記号を覚えたい</a></li>
+                <li><a href="./solve.html#pll">PLLを覚えたい</a></li>
+                <li><a href="./solve.html#oll">OLLを覚えたい</a></li>
+            </ul>
+        </li>
+        <li><a href="./vari.html">色々な形</a>
+            <ul>
+                <li><a href="./vari.html#2x2">2x2</a></li>
+                <li><a href="./vari.html#4x4">4x4</a></li>
+                <li><a href="./vari.html#pira">ピラミンクス</a></li>
+                <li><a href="./vari.html#magic">マジックキューブ</a></li>
+                <li><a href="./vari.html#key">キューブキーホルダー</a></li>
+                <li><a href="./vari.html#maja">麻雀キューブ</a></li>
+            </ul>
+        </li>
+        <li><a href="./patarn.html">パターンキューブ</a>
+            <ul>
+                <li><a href="./patarn.html#check">チェッカー</a></li>
+                <li><a href="./patarn.html#scheck">スーパーチェッカー</a></li>
+                <li><a href="./patarn.html#donut">ドーナツ</a></li>
+                <li><a href="./patarn.html#in">キューブキューブ</a></li>
+                <li><a href="./patarn.html#mini">ミニキューブキューブ</a></li>
+            </ul>
+        </li>
+        <li><a href="./timer.html">タイマー</a></li>
+    </ul>
+    <br/>
+    <div id="printArea">
+        <h2>ルービックキューブの回転記号一覧図</h2>
+    <img id="kaitenp" src="./images/kaiten.jpeg" >
+    </div>
+    <p><a href="#" onclick="printPage()">印刷する</a></p>
+    
+    <hr />
+    <footer>
+        <p><em>© 15822008 石井貴翔</em></p>
+    </footer>
+
+    <script>
+        function printPage() {
+            window.print();
+        }
+    </script>
+</body>
+</html>
